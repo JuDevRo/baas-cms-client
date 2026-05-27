@@ -1,11 +1,14 @@
-import { Outlet } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import Home from './Pages/Home/Home'
+import LogIn from './Pages/LogIn/LogIn'
 
 function App() {
   return (
-    <div className="app-container">
-      <Outlet />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LogIn />} />
+    </Routes>
   )
 }
 
