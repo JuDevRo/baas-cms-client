@@ -19,12 +19,12 @@ export async function login(credentials: LoginCredentials) {
 }
 
 export async function isAuthenticated() {
+  try {
+    await axiosInstance.get('/auth/me')
+    // Save user data
     return true
-//   try {
-//     await axiosInstance.get('/auth/me')
-//     return true
-//   } catch (e) {
-//     console.log(e, 'error checking auth')
-//     return false
-//   }
+  } catch (e) {
+    console.log(e, 'error checking auth')
+    return false
+  }
 }

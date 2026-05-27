@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAuthGuard } from '../../hooks/useAuthGuard'
+import './Home.css'
 
 const Home = () => {
   const { checking } = useAuthGuard()
