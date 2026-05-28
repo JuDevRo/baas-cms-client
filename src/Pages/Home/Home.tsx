@@ -84,12 +84,20 @@ const Home = () => {
         <button className="home-add-btn" onClick={createModal.open}>+ Add Project</button>
       </div>
 
+      <input
+        className="home-search"
+        type="text"
+        placeholder="Search projects..."
+        value={searchQuery}
+        onChange={e => setSearchQuery(e.target.value)}
+      />
+
       <div className="home-project-list">
         {
-          projects.length === 0 ? (
-            <p>No projects found</p>
+          filteredProjects.length === 0 ? (
+            <p>{searchQuery ? 'No projects match your search' : 'No projects found'}</p>
           ) : (
-            projects.map((project: Project) => (
+            filteredProjects.map((project: Project) => (
               <div key={project._id} className="home-project-card">
                 <div className="home-project-card-body" onClick={() => goToProject(project._id)}>
                   <h3>{project.name}</h3>

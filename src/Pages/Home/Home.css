@@ -21,6 +21,28 @@
   opacity: 0.85;
 }
 
+.home-search {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-family: var(--font-family);
+  outline: none;
+  margin-bottom: var(--space-4);
+  transition: border-color 0.15s;
+}
+
+.home-search:focus {
+  border-color: var(--color-primary);
+}
+
+.home-search::placeholder {
+  color: var(--text-tertiary);
+}
+
 .home-project-list {
   display: flex;
   flex-direction: column;
