@@ -80,9 +80,14 @@ const Home = () => {
   return (
     <Layout>
       <div className="home-header">
-        <h2>Proyectos</h2>
-        <button className="home-add-btn" onClick={createModal.open}>+ Add Project</button>
+        <div>
+          <h2>Proyectos</h2>
+          <p className="home-subtitle">Manage your projects — create, edit, and organize them all in one place.</p>
+        </div>
+        <button className="home-add-btn home-add-btn--desktop" onClick={createModal.open}>+ Add Project</button>
       </div>
+
+      <button className="home-add-btn home-add-btn--mobile" onClick={createModal.open}>+ Add Project</button>
 
       <input
         className="home-search"

@@ -1,8 +1,14 @@
 .home-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   margin-bottom: var(--space-6);
+}
+
+.home-subtitle {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
 }
 
 .home-add-btn {
@@ -19,6 +25,23 @@
 
 .home-add-btn:hover {
   opacity: 0.85;
+}
+
+.home-add-btn--mobile {
+  display: none;
+  width: 100%;
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+  .home-add-btn--desktop {
+    display: none;
+  }
+
+  .home-add-btn--mobile {
+    display: block;
+  }
 }
 
 .home-search {
