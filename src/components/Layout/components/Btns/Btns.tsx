@@ -1,28 +1,61 @@
-import React from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import type { UserPayload } from '../../types/user'
+import { LayoutDashboard, Key, Settings, LogOut } from 'lucide-react'
 import './Btns.css'
 
-const Btns = () => {
-    const navigate = useNavigate()
+interface BtnsProps {
+  onClose?: () => void
+}
 
-    const handleNavigation = (route: string) => {
-        navigate(route)
-    }
+const Btns = ({ onClose }: BtnsProps) => {
+  const navigate = useNavigate()
+  const user = useSelector((store: { user: { user: UserPayload } }) => store.user.user)
 
-    const handleLogout = () => {
-        alert('logout')
-    }
+  const handleNavigation = (route: string) => {
+    navigate(route)
+    onClose?.()
+  }
+
+  const handleLogout = () => {
+    alert('logout')
+  }
+
+  const getInitials = (name: string) => {
+    const parts = name.trim().split(/\s+/)
+    if (parts.length === 1) return parts[0][0]?.toUpperCase() ?? '?'
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+  }
 
   return (
     <>
-        <div className="layout-sidebar-top">
-            <button className="btns-btn" onClick={() => handleNavigation('/')}>Projects</button>
-            <button className="btns-btn" onClick={() => handleNavigation('/api-keys')}>API Keys</button>
-            <button className="btns-btn" onClick={() => handleNavigation('/settings')}>Settings</button>
+      <div className="btns-top">
+        <button className="btns-nav-btn" onClick={() => handleNavigation('/')}>
+          <LayoutDashboard size={18} />
+          <span>Projects</span>
+        </button>
+        <button className="btns-nav-btn" onClick={() => handleNavigation('/api-keys')}>
+          <Key size={18} />
+          <span>API Keys</span>
+        </button>
+        <button className="btns-nav-btn" onClick={() => handleNavigation('/settings')}>
+          <Settings size={18} />
+          <span>Settings</span>
+        </button>
+      </div>
+
+      <div className="btns-bottom">
+        <div className="btns-user">
+          <div className="btns-avatar">{getInitials(user?.name ?? '')}</div>
+          <div className="btns-user-info">
+            <span className="btns-user-name">{user?.name}</span>
+            <span className="btns-user-email">{user?.email}</span>
+          </div>
+          <button className="btns-logout-btn" onClick={handleLogout} title="Log out">
+            <LogOut size={16} />
+          </button>
         </div>
-        <div>
-            <button onClick={handleLogout}>Log out</button>
-        </div>
+      </div>
     </>
   )
 }

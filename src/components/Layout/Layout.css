@@ -1,56 +1,73 @@
 .layout {
-    display: flex;
-    height: 100dvh;
+  display: flex;
+  height: 100dvh;
 }
 
 .layout-sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100dvh;
-    width: 20dvw;
-    max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100dvh;
+  width: 260px;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  padding: var(--space-6) var(--space-4);
+  flex-shrink: 0;
 }
 
-.layout-sidebar-top {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    /* padding: 1rem; */
+/* Mobile sidebar overlay */
+.layout-sidebar-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
 }
 
-/* MOBILE SIDEBAR */
-
-.mobile-sidebar {
-    /* position: absolute; */
-    top: 0;
-    left: 0;
-
-    /* width: 260px; */
-    /* max-width: 80vw; */
-
-    /* background: white; */
-    z-index: 1000;
-
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-
-    will-change: transform;
+.layout-sidebar-mobile.sidebar-open {
+  transform: translateX(0);
 }
 
-.mobile-sidebar-open {
-    transform: translateX(0);
-    opacity: 1;
+.layout-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.15s ease-out;
 }
 
-.mobile-sidebar-closed {
-    transform: translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
+.layout-menu-btn {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: var(--space-2);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.layout-menu-btn:hover {
+  border-color: var(--border-active);
+  background: var(--bg-surface-hover);
 }
 
 .layout-content {
-    flex: 1;
-    padding: var(--space-6);
+  flex: 1;
+  padding: var(--space-6);
+  min-width: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
