@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import Modal from '../../components/Modal/Modal'
 import { useModal } from '../../hooks/useModal'
 import Popover from '../../components/Popover/Popover'
-import { MoreHorizontal, Pencil, Trash2 } from 'lucide-react'
+import { MoreHorizontal, Pencil, Trash2, Folder } from 'lucide-react'
 
 interface Project {
   _id: string
@@ -100,6 +100,7 @@ const Home = () => {
             filteredProjects.map((project: Project) => (
               <div key={project._id} className="home-project-card">
                 <div className="home-project-card-body" onClick={() => goToProject(project._id)}>
+                  <div className="home-project-card-icon"><Folder size={18} /></div>
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
                 </div>

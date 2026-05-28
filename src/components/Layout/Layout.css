@@ -67,6 +67,10 @@
   min-width: 0;
 }
 
+.layout-content--pushed {
+  padding-top: calc(var(--space-6) + 44px);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

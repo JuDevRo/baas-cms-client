@@ -43,7 +43,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </>
       )}
 
-      <div className="layout-content">
+      <div className={`layout-content ${!isDesktop ? 'layout-content--pushed' : ''}`}>
         {children}
       </div>
     </div>
