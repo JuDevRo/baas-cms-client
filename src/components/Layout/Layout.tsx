@@ -3,6 +3,7 @@ import './Layout.css'
 import { useSelector } from "react-redux";
 import type { UserPayload } from '../../types/user';
 import { useScreenType } from '../../hooks/useScreenType';
+import Btns from './components/Btns/Btns'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 
@@ -20,14 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {
         screenType === 'desktop' && (
           <div className="layout-sidebar">
-            <div className="layout-sidebar-top">
-              <button>Projects</button>
-              <button>API Keys</button>
-              <button>Settings</button>
-            </div>
-            <div>
-              <button>Log out</button>
-            </div>
+            <Btns />
           </div>
         )
       }
@@ -43,21 +37,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             }
             {menuOpen && (
               <div onClick={(e) => e.stopPropagation()} className={`layout-sidebar mobile-sidebar ${menuOpen ? "mobile-sidebar-open" : "mobile-sidebar-closed"}`}>
-                <div className="layout-sidebar-top">
-                  <button>Projects</button>
-                  <button>API Keys</button>
-                  <button>Settings</button>
-                </div>
-                <div>
-                  <button>Log out</button>
-                </div>
+                <Btns />
               </div>
             )}
           </div>
 
         )
       }
+      <div className="layout-content">
         {children}
+      </div>
     </div>
   )
 }

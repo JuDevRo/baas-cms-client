@@ -1,8 +1,17 @@
 import React from 'react'
+import Layout from '../../components/Layout/Layout'
+import { useAuthGuard } from '../../hooks/useAuthGuard'
 
 const Settings = () => {
+  const { checking } = useAuthGuard()
   return (
-    <div>Settings</div>
+    <Layout>
+      <div>
+        {
+          checking ? 'Comprobando autenticación...' : 'Settings'
+        }
+      </div>
+    </Layout>
   )
 }
 
