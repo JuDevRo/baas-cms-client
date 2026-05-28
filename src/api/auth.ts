@@ -1,11 +1,14 @@
 import axiosInstance from './axios'
+import type { UserPayload } from '../types/user'
+import store from '../reducers/store'
+import setUser from '../actions/userActions'
 
 export interface LoginCredentials {
   email: string
   password: string
 }
 
-export async function login(credentials: LoginCredentials) {
+export async function login(credentials: LoginCredentials): Promise<UserPayload> {
     try {
         const res = await axiosInstance.post('/auth/login', credentials)
         console.log(res, 'login response')
@@ -18,11 +21,11 @@ export async function login(credentials: LoginCredentials) {
 //   if (token) setAuthToken(token)
 }
 
-export async function isAuthenticated() {
+export async function isAuthenticated(): Promise<UserPayload | false> {
   try {
-    await axiosInstance.get('/auth/me')
-    // Save user data
-    return true
+    const response = await axiosInstance.get('/auth/me')
+    store.dispatch(setUser(response.data.user));
+    return response.data.user ?? false
   } catch (e) {
     console.log(e, 'error checking auth')
     return false

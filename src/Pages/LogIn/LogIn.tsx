@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import { isAxiosError } from 'axios'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../api/auth'
+import './LogIn.css'
 
 const LogIn = () => {
   const navigate = useNavigate()
@@ -16,40 +18,78 @@ const LogIn = () => {
     try {
       await login({ email, password })
       navigate('/')
-    } catch (err: any) {
-      setError(err?.response?.data?.message || 'Login failed')
+    } catch (err: unknown) {
+      if (isAxiosError(err)) {
+        setError(err.response?.data?.message || 'Login failed')
+      } else {
+        setError('Login failed')
+      }
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="login-container">
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Correo</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="login">
+      <div className="login-title">
+        <h2>Content Management System</h2>
+      </div>
+      <div className="login-container">
+        <div className="login-header">
+          <h1>
+            Welcome back
+          </h1>
+          <p className="login-subtitle">
+            Sign in to your account
+          </p>
         </div>
-        <div>
-          <label>Contraseña</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        {error && <div className="error">{error}</div>}
-        <button type="submit" disabled={loading}>
-          {loading ? 'Entrando...' : 'Entrar'}
-        </button>
-      </form>
+
+        <form className='login-form' onSubmit={handleSubmit}>
+          <div className="login-field">
+            <label htmlFor="email">
+              Correo
+            </label>
+            <input
+              id="email"
+              className="login-input"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="tu@correo.com"
+            />
+          </div>
+
+          <div className="login-field">
+            <label htmlFor="password">
+              Contraseña
+            </label>
+            <input
+              id="password"
+              className="login-input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="••••••••"
+            />
+          </div>
+
+          {error && (
+            <div>
+              {error}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="login-button"
+          >
+            {loading ? 'Entrando...' : 'Entrar'}
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

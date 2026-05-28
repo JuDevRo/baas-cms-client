@@ -1,0 +1,51 @@
+.layout {
+    display: flex;
+    height: 100dvh;
+}
+
+.layout-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100dvh;
+    width: 20dvw;
+    max-width: 300px;
+}
+
+.layout-sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* padding: 1rem; */
+}
+
+/* MOBILE SIDEBAR */
+
+.mobile-sidebar {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+
+    /* width: 260px; */
+    /* max-width: 80vw; */
+
+    /* background: white; */
+    z-index: 1000;
+
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+
+    will-change: transform;
+}
+
+.mobile-sidebar-open {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.mobile-sidebar-closed {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}

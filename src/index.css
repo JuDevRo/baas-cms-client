@@ -1,17 +1,79 @@
 :root {
+  /* --- COLORS --- */
+  /* Fondos */
+  --bg-body: #050505;          /* Fondo principal casi negro */
+  --bg-surface: #0a0a0a;       /* Fondo de tarjetas y sidebar */
+  --bg-surface-hover: #141414; /* Hover en elementos */
+  --bg-input: #0f0f0f;         /* Fondo de inputs */
+  
+  /* Bordes */
+  --border-subtle: #222222;    /* Bordes sutiles */
+  --border-active: #333333;    /* Bordes al hacer hover */
+  
+  /* Texto */
+  --text-primary: #ffffff;     /* Títulos y texto importante */
+  --text-secondary: #888888;   /* Descripciones */
+  --text-tertiary: #555555;    /* Placeholders */
+  
+  /* Branding */
+  --color-primary: #00E096;    /* Verde neón */
+  --color-primary-glow: rgba(0, 224, 150, 0.2);
+  
+  /* Botones */
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #000000;
+  
+  /* --- TYPOGRAPHY --- */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Tamaños de fuente */
+  --text-xs: 0.75rem;   /* 12px */
+  --text-sm: 0.875rem;  /* 14px */
+  --text-base: 1rem;    /* 16px */
+  --text-lg: 1.125rem;  /* 18px */
+  --text-xl: 1.25rem;   /* 20px */
+  --text-2xl: 1.5rem;   /* 24px */
+  
+  /* Pesos */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  
+  /* --- SPACING (Escala base 4px/8px) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  
+  /* --- BORDER RADIUS --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;   /* Tarjetas y botones */
+  --radius-lg: 12px;
+  
+  /* --- SHADOWS --- */
+  --shadow-glow: 0 0 15px var(--color-primary-glow);
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* =========================================
+   RESET & BASE STYLES
+   ========================================= */
 
-  font-family: 'Geist', sans-serif;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
-
