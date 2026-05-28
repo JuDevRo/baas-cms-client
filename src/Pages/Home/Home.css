@@ -28,16 +28,54 @@
 }
 
 .home-project-card {
+  display: flex;
+  align-items: flex-start;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-4);
-  cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
 
 .home-project-card:hover {
   border-color: var(--border-active);
+  background: var(--bg-surface-hover);
+}
+
+.home-project-card-body {
+  flex: 1;
+  cursor: pointer;
+}
+
+.home-project-card-body h3 {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.home-project-card-body p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.home-project-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.home-project-menu-btn:hover {
+  color: var(--text-primary);
   background: var(--bg-surface-hover);
 }
 
@@ -106,4 +144,16 @@
   background: var(--bg-surface-hover);
   color: var(--text-secondary);
   border: 1px solid var(--border-subtle);
+}
+
+.modal-form-btn-danger {
+  background: #e5484d;
+  color: #ffffff;
+}
+
+.modal-delete-text {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-4);
 }
