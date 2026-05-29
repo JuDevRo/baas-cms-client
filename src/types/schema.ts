@@ -6,15 +6,10 @@ export interface SchemaField {
   multiple?: boolean
 }
 
-export interface DataField {
-  key: string
-  value: unknown
-}
-
 export interface Schema {
   _id: string
   user_id: string
   projectId: string
   structure: SchemaField[]
-  data: DataField[]
+  data: Record<string, unknown>[]
 }
