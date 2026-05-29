@@ -1,0 +1,118 @@
+.project {
+  max-width: 900px;
+}
+
+.project-loading {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.project-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  font-family: var(--font-family);
+  cursor: pointer;
+  padding: var(--space-1) 0;
+  margin-bottom: var(--space-6);
+  transition: color 0.15s;
+}
+
+.project-back-btn:hover {
+  color: var(--text-primary);
+}
+
+.project-header {
+  margin-bottom: var(--space-8);
+}
+
+.project-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.project-description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.project-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-6);
+}
+
+.project-tab {
+  background: none;
+  border: none;
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-sm);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.15s;
+}
+
+.project-tab:hover {
+  color: var(--text-secondary);
+}
+
+.project-tab--active {
+  color: var(--text-primary);
+}
+
+.project-tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.project-tab-content {
+  min-height: 200px;
+}
+
+.project-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-section-header h3 {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.project-add-btn {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.project-add-btn:hover {
+  opacity: 0.85;
+}
