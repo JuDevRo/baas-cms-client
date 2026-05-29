@@ -91,6 +91,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: var(--space-5);
 }
 
 .project-section-header h3 {
@@ -101,6 +102,9 @@
 }
 
 .project-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   background: var(--btn-primary-bg);
   color: var(--btn-primary-text);
   border: none;
@@ -115,4 +119,192 @@
 
 .project-add-btn:hover {
   opacity: 0.85;
+}
+
+.project-empty {
+  color: var(--text-tertiary);
+  font-size: var(--text-sm);
+  margin: var(--space-10) 0;
+  text-align: center;
+}
+
+/* Field list */
+.project-field-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.project-field-card {
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  transition: border-color 0.15s;
+}
+
+.project-field-card:hover {
+  border-color: var(--border-active);
+}
+
+.project-field-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.project-field-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.project-field-key {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-family: monospace;
+  background: var(--bg-input);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.project-field-type {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.project-field-badge {
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  background: var(--color-primary-glow);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Schema modal */
+.schema-modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.schema-modal-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.schema-field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+}
+
+.schema-field-row-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.schema-field-row-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.schema-field-row-key {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-family: monospace;
+}
+
+.schema-field-row-type {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.schema-field-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #e5484d;
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.schema-field-remove:hover {
+  background: rgba(229, 72, 77, 0.15);
+}
+
+.schema-modal-add {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.schema-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.schema-modal-checkboxes {
+  display: flex;
+  gap: var(--space-5);
+}
+
+.schema-modal-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.schema-modal-checkbox input {
+  accent-color: var(--color-primary);
+}
+
+.schema-modal-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  border: 1px dashed var(--border-active);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.schema-modal-add-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-glow);
+}
+
+.schema-modal-add-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
